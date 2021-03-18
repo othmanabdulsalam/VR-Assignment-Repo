@@ -172,7 +172,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b2ee8fc03e0786545b913eeaa7af99b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -531,6 +531,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2263843735560530513, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263843735560530513, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263843735560530513, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263843735560530513, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263843735560530513, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2285621026916224930, guid: 9a6888146178b214493f5c2463c8b657,
         type: 3}
       propertyPath: m_Name
@@ -591,6 +616,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4314129638956226032, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314129638956226032, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314129638956226032, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314129638956226032, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314129638956226032, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6888146178b214493f5c2463c8b657, type: 3}
 --- !u!1001 &4577735517418851922
@@ -604,6 +654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DefaultCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577735515890964109, guid: a81c6dd2b78ec0344ad558d44a5c5f12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4577735515890964145, guid: a81c6dd2b78ec0344ad558d44a5c5f12,
         type: 3}
