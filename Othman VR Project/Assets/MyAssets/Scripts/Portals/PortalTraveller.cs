@@ -10,6 +10,7 @@ public class PortalTraveller : MonoBehaviour
     public virtual void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot)
     {
         transform.position = pos;
+        // push the y position up by
         transform.rotation = rot;
     }
 

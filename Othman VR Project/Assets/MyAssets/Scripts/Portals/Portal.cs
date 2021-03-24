@@ -32,6 +32,11 @@ public class Portal : MonoBehaviour
         Render();
     }
 
+    void FixedUpdate()
+    {
+        HandleTravellers();
+    }
+
     void HandleTravellers() 
     {
         for (int i = 0; i < trackedTravellers.Count; i++)
@@ -39,33 +44,33 @@ public class Portal : MonoBehaviour
             // set traveller and traveller transform
             PortalTraveller traveller = trackedTravellers[i];
             Transform travellerT = traveller.transform;
+            
 
             // calculate offset from portal from the traveller transform to the portals transform
-            Vector3 offsetFromPortal = travellerT.position = transform.position;
+            Vector3 offsetFromPortal = travellerT.position - transform.position;
             int portalSide = System.Math.Sign(Vector3.Dot(offsetFromPortal, transform.forward));
             int portalSideOld = System.Math.Sign(Vector3.Dot(traveller.previousOffsetFromPortal, transform.forward));
-            // Teleport Traveller from one side of the portal to the other
+
+            // Teleport Traveller if it has crossed one side of the portal to the other
             if (portalSide != portalSideOld) // check the portal side isnt the old side
             {
-                var m = linkedPortal.transform.localToWorldMatrix * transform.worldToLocalMatrix * travellerT.transform.localToWorldMatrix;
+                Matrix4x4 m = linkedPortal.transform.localToWorldMatrix * transform.worldToLocalMatrix * travellerT.localToWorldMatrix;
+                // traveller can teleport
                 traveller.Teleport(transform, linkedPortal.transform, m.GetColumn(3), m.rotation);
+                
 
                 linkedPortal.OnTravellerEnterPortal(traveller);
-                //trackedTravellers.RemoveAt(i);
-                //i--;
+                trackedTravellers.RemoveAt(i);
+                i--;
             }
             else
             {
-                // if portal side is same as old portal sidem set previous offset equal to offset
+                // if portal side is same as old portal side set previous offset equal to offset
                 traveller.previousOffsetFromPortal = offsetFromPortal;
             }
         }
     }
 
-    void LateUpdate()
-    {
-        HandleTravellers();
-    }
     void CreateViewTexture()
     {
         if (viewTexture == null || viewTexture.width != Screen.width || viewTexture.height != Screen.height)
@@ -130,7 +135,7 @@ public class Portal : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        var traveller = other.GetComponent<PortalTraveller>();
+        PortalTraveller traveller = other.GetComponent<PortalTraveller>();
         if (traveller)
         {
             OnTravellerEnterPortal(traveller);
