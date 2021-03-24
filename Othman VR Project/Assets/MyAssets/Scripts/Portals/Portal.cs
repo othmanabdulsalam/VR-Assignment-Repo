@@ -27,11 +27,6 @@ public class Portal : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        Render();
-    }
-
     void FixedUpdate()
     {
         HandleTravellers();
@@ -45,7 +40,6 @@ public class Portal : MonoBehaviour
             PortalTraveller traveller = trackedTravellers[i];
             Transform travellerT = traveller.transform;
             
-
             // calculate offset from portal from the traveller transform to the portals transform
             Vector3 offsetFromPortal = travellerT.position - transform.position;
             int portalSide = System.Math.Sign(Vector3.Dot(offsetFromPortal, transform.forward));
@@ -88,7 +82,7 @@ public class Portal : MonoBehaviour
     }
 
     // Manually render the camera attached to this portal
-    void Render()
+    public void Render()
     {
         // check visibility of linked portal, if not visibile then skip render
         if(!VisibleFromCamera(linkedPortal.screen,playerCam))
@@ -99,7 +93,7 @@ public class Portal : MonoBehaviour
             //linkedPortal.screen.material.SetTexture("_MainTex", testTexture);
             return;
         }
-
+        // uncomment this line when testing visibility of portals
         //linkedPortal.screen.material.SetTexture("_MainTex", viewTexture);
         screen.enabled = false;
         CreateViewTexture();
@@ -108,6 +102,8 @@ public class Portal : MonoBehaviour
             * linkedPortal.transform.worldToLocalMatrix 
             * playerCam.transform.localToWorldMatrix;
         portalCam.transform.SetPositionAndRotation(m.GetColumn(3), m.rotation);
+        // handle near clipping for portal camera's
+        SetNearClipPlane();
         // Render the Camera
         portalCam.Render();
         // re-enable screen
@@ -152,6 +148,52 @@ public class Portal : MonoBehaviour
         }
     }
 
+    // Called once all portals have been rendered, but before the player camera renders
+    public void PostPortalRender()
+    {
+        //foreach (var traveller in trackedTravellers)
+        //{
+        //    UpdateSliceParams(traveller);
+        //}
+        ProtectScreenFromClipping();
+    }
+
+    // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through
+    void ProtectScreenFromClipping()
+    {
+        float halfHeight = playerCam.nearClipPlane * Mathf.Tan(playerCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float halfWidth = halfHeight * playerCam.aspect;
+
+        // set optimal screen thickness based on player camera's nearclip plane
+        float screenThickness = new Vector3(halfWidth,halfHeight,playerCam.nearClipPlane).magnitude;
+
+        Transform screenT = screen.transform;
+        bool isCamFacingPortalDirection = Vector3.Dot(transform.forward,transform.position-playerCam.transform.position) > 0;
+
+        //float pushValue = 0.01f;
+        float pushValue = 0.01f;
+
+        // change the scaleZ to be the new thickness
+        screenT.localScale = new Vector3(screenT.localScale.x, screenT.localScale.y, screenThickness);
+        // push the screen back to remove flicker effect
+        screenT.localPosition = Vector3.forward * screenThickness * (isCamFacingPortalDirection ? pushValue : -pushValue);
+    }
+
+    // Function for setting the portal camera's near clip plane to avoid objects obstructing its view
+    // Technique is called Oblique projection and was found from http://www.terathon.com/lengyel/Lengyel-Oblique.pdf
+    void SetNearClipPlane()
+    {
+        Transform clipPlane = transform;
+        int dot = System.Math.Sign(Vector3.Dot(clipPlane.forward, transform.position - portalCam.transform.position));
+
+        Vector3 camSpacePos = portalCam.worldToCameraMatrix.MultiplyPoint(clipPlane.position);
+        Vector3 camSpaceNormal = portalCam.worldToCameraMatrix.MultiplyVector(clipPlane.forward)*dot;
+
+        float camSpaceDst = -Vector3.Dot(camSpacePos, camSpaceNormal);
+        Vector4 clipPlaneCameraSpace = new Vector4(camSpaceNormal.x,camSpaceNormal.y,camSpaceNormal.z,camSpaceDst);
+
+        portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
+    }
 
     /*
      ** Some helper/convenience stuff:
