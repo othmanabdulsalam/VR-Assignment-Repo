@@ -716,6 +716,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970dd4b9371394fb4890965f608d46fd, type: 3}
+--- !u!1 &834366132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4421507185236345901, guid: 9a6888146178b214493f5c2463c8b657,
+    type: 3}
+  m_PrefabInstance: {fileID: 2285621027043114069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &962432722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -787,6 +793,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779051194819323705, guid: 0dadad7bf63c8a941b4f3b071d1f9a0f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779051194819323705, guid: 0dadad7bf63c8a941b4f3b071d1f9a0f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02854878
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779051194819323705, guid: 0dadad7bf63c8a941b4f3b071d1f9a0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5326408698086338269, guid: 0dadad7bf63c8a941b4f3b071d1f9a0f,
         type: 3}
@@ -888,6 +909,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779051194819323705, guid: 0dadad7bf63c8a941b4f3b071d1f9a0f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02854878
       objectReference: {fileID: 0}
     - target: {fileID: 5326408698086338269, guid: 0dadad7bf63c8a941b4f3b071d1f9a0f,
         type: 3}
@@ -1123,7 +1149,7 @@ PrefabInstance:
     - target: {fileID: 2285621026916224943, guid: 9a6888146178b214493f5c2463c8b657,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2285621026932412704, guid: 9a6888146178b214493f5c2463c8b657,
         type: 3}
@@ -1165,6 +1191,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4940820280193932252, guid: 9a6888146178b214493f5c2463c8b657,
+        type: 3}
+      propertyPath: graphicsObject
+      value: 
+      objectReference: {fileID: 834366132}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a6888146178b214493f5c2463c8b657, type: 3}
 --- !u!1001 &4577735517418851922

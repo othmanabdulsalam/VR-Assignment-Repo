@@ -10,19 +10,19 @@ public class MainCamera : MonoBehaviour
 
     void OnPreCull()
     {
-        //for (int i = 0; i < portals.Length; i++)
-        //{
-        //    portals[i].PrePortalRender();
-        //}
+        for (int i = 0; i < portals.Length; i++)
+        {
+            portals[i].PrePortalRender();
+        }
         for (int i = 0; i < portals.Length; i++)
         {
 
-            portals[i].Render();
+            portals[i].Render(); // handle rendering portal view
         }
 
         for (int i = 0; i < portals.Length; i++)
         {
-            portals[i].PostPortalRender();
+            portals[i].PostPortalRender(); // handle post rendering tasks such as clipping protection
         }
     }
 }

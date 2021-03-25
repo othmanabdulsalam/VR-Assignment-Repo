@@ -69,7 +69,7 @@ MonoBehaviour:
   prevLookingForward: 0
   lookingForward: 0
   isMoving: 0
-  speed: 1
+  speed: 3
 --- !u!114 &4940820280193932252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4899a5b8854e140874d9347cc9a69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portals: []
 --- !u!1 &4421507185236345901
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,12 +575,12 @@ PrefabInstance:
     - target: {fileID: 4577735515890964145, guid: a81c6dd2b78ec0344ad558d44a5c5f12,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4577735515890964145, guid: a81c6dd2b78ec0344ad558d44a5c5f12,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4577735515890964145, guid: a81c6dd2b78ec0344ad558d44a5c5f12,
         type: 3}
