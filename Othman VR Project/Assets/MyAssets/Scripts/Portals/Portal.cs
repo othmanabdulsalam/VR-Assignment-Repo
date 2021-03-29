@@ -34,7 +34,7 @@ public class Portal : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // I dont know why, i shouldnt have to know why
+        // I dont know why, I cannot fathom any reasons for why
         // But for whatever reason, if the HandleTraveller function is called Update or LateUpdate
         // The teleportation will not consistently work.
 
@@ -176,6 +176,7 @@ public class Portal : MonoBehaviour
     }
 
     // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through
+
     void ProtectScreenFromClipping()
     {
         float halfHeight = playerCam.nearClipPlane * Mathf.Tan(playerCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
@@ -258,7 +259,7 @@ public class Portal : MonoBehaviour
 
 
 /**
- * Original code from Sebastian Lague
+ * Original code from Sebastian Lague for Unity 2019.1.3
  */
 //public class Portal : MonoBehaviour
 //{
