@@ -117,7 +117,8 @@ public class Portal : MonoBehaviour
         // handle near clipping for portal camera's
         SetNearClipPlane();
         // Render the Camera
-        // ISSUE: Sometimes, an error occurs on this function called "Screen Position out of view frustrum". Not sure how to fix this
+        // ISSUE: Sometimes, an error occurs on this function called "Screen Position out of view frustrum", which causes
+        // a crash. Not sure how to fix this
         portalCam.Render();
         // re-enable screen
         screen.enabled = true;
