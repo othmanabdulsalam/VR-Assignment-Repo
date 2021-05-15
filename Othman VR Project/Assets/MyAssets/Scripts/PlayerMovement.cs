@@ -13,13 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 1.0f;
     float toggleAngle = 30.0f;
 
-    public GameObject lookBar;
+    //public GameObject lookBar;
     float timeToMove = 2.0f; // time before making a start
     float moveTimer = 0f;
     float timeToStop = 0.5f; // time before making a stop
     float stopTimer = 0f;
 
-
+    public MeshRenderer reticle;
 
     // Use this for initialization
     void Start()
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving)
         {
             // set reticle colour to indicate movement
-
+            reticle.material.SetColor("_Color",Color.white);
 
             //timer = 0f; // reset the time
             //lookBar.GetComponentInChildren<Image>().fillAmount = 0f;
@@ -95,11 +95,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // set reticle colour to indicate pause
-        
+        reticle.material.SetColor("_Color", Color.black);
     }
     void updateLookBar(float timer,float timeAmount)
     {
-        lookBar.GetComponentInChildren<Image>().fillAmount = barAmount(timer,timeAmount);
+        //lookBar.GetComponentInChildren<Image>().fillAmount = barAmount(timer,timeAmount);
     }
     float barAmount(float timer,float timeAmount)
     {

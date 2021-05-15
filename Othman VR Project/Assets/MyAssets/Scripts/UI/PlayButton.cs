@@ -38,13 +38,15 @@ public class PlayButton : MonoBehaviour
 
     public void buttonOff()
     {
+        circle.fillAmount = 0;
         playButtonStatus = false;
         playButtonTimer = 0;
-        circle.fillAmount = 0;
+        //circle.fillAmount = 0;
     }
 
     public void loadMaze()
     {
+        circle.fillAmount = 0;
         SceneManager.LoadScene("Maze");
     }
 

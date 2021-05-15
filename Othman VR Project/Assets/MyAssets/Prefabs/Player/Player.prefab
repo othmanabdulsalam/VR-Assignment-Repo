@@ -71,7 +71,7 @@ MonoBehaviour:
   toggleForwardMotion: 0
   startLookingForward: 0
   speed: 3
-  lookBar: {fileID: 0}
+  reticle: {fileID: 2285621025619846531}
 --- !u!114 &4940820280193932252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,6 +539,12 @@ PrefabInstance:
 --- !u!4 &2285621025617502885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738,
+    type: 3}
+  m_PrefabInstance: {fileID: 2285621025617951065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2285621025619846531 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2301146, guid: 60270cf52a5e94998a5a335989159738,
     type: 3}
   m_PrefabInstance: {fileID: 2285621025617951065}
   m_PrefabAsset: {fileID: 0}
