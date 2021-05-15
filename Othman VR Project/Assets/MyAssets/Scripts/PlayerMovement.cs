@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     float stopTimer = 0f;
 
 
+
     // Use this for initialization
     void Start()
     {
@@ -82,11 +83,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (isMoving)
         {
+            // set reticle colour to indicate movement
+
+
             //timer = 0f; // reset the time
             //lookBar.GetComponentInChildren<Image>().fillAmount = 0f;
+
             Vector3 forward = camera.TransformDirection(Vector3.forward);
             characterController.SimpleMove(forward * speed);
+            return;
         }
+
+        // set reticle colour to indicate pause
+        
     }
     void updateLookBar(float timer,float timeAmount)
     {
