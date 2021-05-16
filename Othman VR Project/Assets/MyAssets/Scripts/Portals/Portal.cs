@@ -143,6 +143,10 @@ public class Portal : MonoBehaviour
         }
     }
 
+    public void PrePortalRender()
+    {
+    }
+
     void OnTriggerEnter(Collider other)
     {
         PortalTraveller traveller = other.GetComponent<PortalTraveller>();
@@ -160,10 +164,6 @@ public class Portal : MonoBehaviour
             traveller.ExitPortalThreshold();
             trackedTravellers.Remove(traveller);
         }
-    }
-
-    public void PrePortalRender()
-    {
     }
 
 
